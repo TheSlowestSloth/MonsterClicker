@@ -1,0 +1,20 @@
+<div id="monster" *ngIf="monster">
+
+    <img src="../../assets/{{monster.image}}" (click)="scoring($event)"/>
+
+    <div>
+        <div class="damage" id="damage{{i}}" *ngFor='let dmg of damages, let i=index' [@fadeIn] >{{itemService.nFormatter(damages[i])}}</div>
+    </div>
+
+    <div id='lifeBar'>
+        <div id="lifePoint"></div>
+    </div>
+
+    <div id="level">
+        <div>Lvl: {{heroService.hero.level}}</div>
+        <div id="xpBar">
+            <div id="exp"></div>
+        </div>
+    </div>
+
+</div>

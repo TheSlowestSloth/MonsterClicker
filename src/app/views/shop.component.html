@@ -1,0 +1,37 @@
+<div id="shop">
+
+    <div *ngIf="!flagShop">
+        <div id="container">
+            <div *ngFor="let it of items; let i=index">
+
+                <div id="{{i}}" class="item" *ngIf="hero.level >= it.level" >
+                        <img src='../../assets/money.png'/> {{itemService.nFormatter(it.price)}} <img class="icon" src='../../assets/{{it.image}}'/> + {{itemService.nFormatter(it.damage)}} DMG <div class="button" (click)="itemService.buyIt(i)"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="flagShop">
+        <div id="container">
+            <div *ngFor="let it of inventory; let i=index">
+
+                <div id="{{i}}" class="item" *ngIf="hero.level >= it.level" >
+                        <img class="icon" src='../../assets/{{it.image}}'/> + {{itemService.nFormatter(it.damage)}} DMG
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <div id="icones">
+        <div id="inventory" (click)="flagShop=true"></div>
+        <div id="boutique" (click)="flagShop=false"></div>
+    </div>
+
+    <div id="argent">
+        <img src='../../assets/money.png'/>
+        <div>{{itemService.nFormatter(hero.golds)}}</div>
+    </div>
+
+</div>

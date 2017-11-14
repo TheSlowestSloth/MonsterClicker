@@ -1,0 +1,22 @@
+<div id="background"></div>
+
+<div id="score">SCORE: {{itemService.nFormatter(heroService.hero.score)}}</div>
+
+<div id="money">
+  <img src='../../assets/money.png'/>
+  <div>{{itemService.nFormatter(heroService.hero.golds)}}</div>
+</div>
+
+<a *ngIf="!slide" (click)="slide=true" routerLink="/shop" >
+  <div id="navBar">
+    <div id="arrowR"></div>
+  </div>
+</a>
+
+<a *ngIf="slide" (click)="slide=false; monsterService.save(itemService, heroService)" routerLink="/" >
+  <div id="navBarRight">
+    <div id="arrowL"></div>
+  </div>
+</a>
+
+<router-outlet></router-outlet>
